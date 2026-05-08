@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Foil Face Support</title>
+    <meta
+      name="description"
+      content="Support, help, and contact information for the Foil Face app."
+    />
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f7f5ef;
+        --surface: #fffdf8;
+        --surface-strong: #ffffff;
+        --ink: #202124;
+        --muted: #62656a;
+        --line: #ded8ca;
+        --accent: #0f766e;
+        --accent-dark: #115e59;
+        --accent-soft: #d9f1ec;
+        --shadow: 0 18px 50px rgba(32, 33, 36, 0.08);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background:
+          radial-gradient(circle at top left, rgba(217, 241, 236, 0.8), transparent 34rem),
+          linear-gradient(180deg, var(--bg), #ece8df);
+        color: var(--ink);
+        font-family:
+          Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+          "Segoe UI", sans-serif;
+        line-height: 1.55;
+      }
+
+      a {
+        color: var(--accent-dark);
+        font-weight: 700;
+        text-decoration-thickness: 0.08em;
+        text-underline-offset: 0.18em;
+      }
+
+      .page {
+        width: min(1120px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 32px 0 48px;
+      }
+
+      header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        padding: 8px 0 56px;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        color: var(--ink);
+        font-size: 1.05rem;
+        font-weight: 800;
+        text-decoration: none;
+      }
+
+      .mark {
+        display: grid;
+        width: 42px;
+        height: 42px;
+        place-items: center;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background:
+          linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(217, 241, 236, 0.9)),
+          var(--surface-strong);
+        box-shadow: 0 8px 20px rgba(32, 33, 36, 0.08);
+        color: var(--accent-dark);
+        font-weight: 900;
+      }
+
+      nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 14px;
+      }
+
+      nav a {
+        color: var(--muted);
+        font-size: 0.95rem;
+        font-weight: 700;
+        text-decoration: none;
+      }
+
+      main {
+        display: grid;
+        gap: 28px;
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
+        gap: 28px;
+        align-items: stretch;
+      }
+
+      .hero-copy {
+        padding: clamp(32px, 6vw, 72px);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: rgba(255, 253, 248, 0.9);
+        box-shadow: var(--shadow);
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+      }
+
+      h1 {
+        max-width: 760px;
+        margin-bottom: 18px;
+        font-size: clamp(2.4rem, 6vw, 5.2rem);
+        line-height: 0.96;
+        letter-spacing: 0;
+      }
+
+      h2 {
+        margin-bottom: 16px;
+        font-size: clamp(1.45rem, 3vw, 2rem);
+        line-height: 1.15;
+      }
+
+      h3 {
+        margin-bottom: 8px;
+        font-size: 1.05rem;
+      }
+
+      .lede {
+        max-width: 690px;
+        margin-bottom: 28px;
+        color: var(--muted);
+        font-size: clamp(1.06rem, 2vw, 1.25rem);
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 46px;
+        padding: 0 18px;
+        border: 1px solid var(--accent);
+        border-radius: 8px;
+        background: var(--accent);
+        color: #ffffff;
+        font-weight: 800;
+        text-decoration: none;
+      }
+
+      .button.secondary {
+        border-color: var(--line);
+        background: var(--surface-strong);
+        color: var(--accent-dark);
+      }
+
+      .status-card,
+      .panel,
+      .faq,
+      .contact {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: rgba(255, 253, 248, 0.92);
+        box-shadow: var(--shadow);
+      }
+
+      .status-card {
+        display: grid;
+        align-content: center;
+        gap: 18px;
+        padding: 30px;
+      }
+
+      .status-pill {
+        display: inline-flex;
+        width: fit-content;
+        align-items: center;
+        gap: 8px;
+        padding: 7px 10px;
+        border-radius: 999px;
+        background: var(--accent-soft);
+        color: var(--accent-dark);
+        font-size: 0.88rem;
+        font-weight: 800;
+      }
+
+      .dot {
+        width: 9px;
+        height: 9px;
+        border-radius: 999px;
+        background: var(--accent);
+      }
+
+      .status-card p,
+      .panel p,
+      .faq p,
+      .contact p {
+        color: var(--muted);
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .panel,
+      .faq,
+      .contact {
+        padding: 28px;
+      }
+
+      .panel p:last-child,
+      .faq p:last-child,
+      .contact p:last-child,
+      .status-card p:last-child {
+        margin-bottom: 0;
+      }
+
+      .faq-list {
+        display: grid;
+        gap: 14px;
+      }
+
+      details {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--surface-strong);
+        padding: 16px 18px;
+      }
+
+      summary {
+        cursor: pointer;
+        font-weight: 800;
+      }
+
+      summary::marker {
+        color: var(--accent);
+      }
+
+      details p {
+        margin: 12px 0 0;
+      }
+
+      .contact {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 24px;
+        align-items: center;
+      }
+
+      footer {
+        padding-top: 22px;
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+
+      @media (max-width: 820px) {
+        header,
+        .hero,
+        .contact {
+          grid-template-columns: 1fr;
+        }
+
+        header {
+          align-items: flex-start;
+          padding-bottom: 34px;
+        }
+
+        nav {
+          justify-content: flex-start;
+        }
+
+        .hero-copy,
+        .status-card,
+        .panel,
+        .faq,
+        .contact {
+          padding: 24px;
+        }
+
+        .grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <header>
+        <a class="brand" href="/" aria-label="Foil Face Support home">
+          <span class="mark" aria-hidden="true">FF</span>
+          <span>Foil Face Support</span>
+        </a>
+        <nav aria-label="Support navigation">
+          <a href="#help">Help</a>
+          <a href="#faq">FAQ</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </header>
+
+      <main>
+        <section class="hero" aria-labelledby="page-title">
+          <div class="hero-copy">
+            <h1 id="page-title">Support for Foil Face</h1>
+            <p class="lede">
+              Need help with the Foil Face app? Find quick answers, check common
+              troubleshooting steps, or get in touch for direct support.
+            </p>
+            <div class="actions" aria-label="Primary support actions">
+              <a class="button" href="mailto:support@foilface.app">Email Support</a>
+              <a class="button secondary" href="#faq">Read FAQ</a>
+            </div>
+          </div>
+
+          <aside class="status-card" aria-label="Support status">
+            <span class="status-pill"><span class="dot" aria-hidden="true"></span> Support active</span>
+            <div>
+              <h2>We can help</h2>
+              <p>
+                Send a short description of what happened, your device model, and
+                your iOS version. Screenshots are helpful when the issue is visual.
+              </p>
+            </div>
+          </aside>
+        </section>
+
+        <section id="help" class="grid" aria-label="Support options">
+          <article class="panel">
+            <h2>App Issues</h2>
+            <p>
+              If Foil Face is freezing, crashing, or behaving unexpectedly, try
+              closing and reopening the app, then restart your device if the
+              issue continues.
+            </p>
+          </article>
+
+          <article class="panel">
+            <h2>Photos & Access</h2>
+            <p>
+              If the app cannot access your photos or camera, open iOS Settings,
+              find Foil Face, and confirm the permissions you want to use are
+              enabled.
+            </p>
+          </article>
+
+          <article class="panel">
+            <h2>Feedback</h2>
+            <p>
+              Ideas, feature requests, and bug reports are welcome. The more
+              specific the note, the easier it is to improve the app.
+            </p>
+          </article>
+        </section>
+
+        <section id="faq" class="faq" aria-labelledby="faq-title">
+          <h2 id="faq-title">Frequently Asked Questions</h2>
+          <div class="faq-list">
+            <details>
+              <summary>How do I report a bug?</summary>
+              <p>
+                Email <a href="mailto:support@foilface.app">support@foilface.app</a>
+                with what you expected to happen, what actually happened, and the
+                steps that seem to trigger the issue.
+              </p>
+            </details>
+
+            <details>
+              <summary>Why is photo or camera access not working?</summary>
+              <p>
+                Check your device permissions in Settings. If permissions are
+                already enabled, update Foil Face to the latest version and restart
+                the app.
+              </p>
+            </details>
+
+            <details>
+              <summary>How do I request a new feature?</summary>
+              <p>
+                Send your idea by email and include how you would use it. Practical
+                examples help prioritize what to build next.
+              </p>
+            </details>
+
+            <details>
+              <summary>Where can I find privacy information?</summary>
+              <p>
+                For privacy questions, contact support and include "Privacy" in
+                the subject line so the request can be handled appropriately.
+              </p>
+            </details>
+          </div>
+        </section>
+
+        <section id="contact" class="contact" aria-labelledby="contact-title">
+          <div>
+            <h2 id="contact-title">Contact Support</h2>
+            <p>
+              For the fastest help, include your Foil Face app version, iPhone or
+              iPad model, iOS version, and a brief description of the issue.
+            </p>
+          </div>
+          <a class="button" href="mailto:support@foilface.app">support@foilface.app</a>
+        </section>
+      </main>
+
+      <footer>
+        <p>&copy; 2026 Foil Face. All rights reserved.</p>
+      </footer>
+    </div>
+  </body>
+</html>
